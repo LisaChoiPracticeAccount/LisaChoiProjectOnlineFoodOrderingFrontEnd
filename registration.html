@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registration </title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="js/auth.js"></script>
+
 </head>
 
 <!-- header menu -->
@@ -49,17 +51,20 @@
         class="bg-white border rounded-2x1 p-6 w-full max-w-md shadow">
         <h2 class="text-xl font-semibold mb-4">Register</h2>
 
-        <input type="firstName" required placeholder="First Name"
+        <input type="firstName" id="firstName" placeholder="First Name"
           class="w-full border rounded-lg px-4 py-2 mb-3">
 
-        <input type="lastName" required placeholder="Last Name"
+        <input type="lastName" id="lastName" required placeholder="Last Name"
           class="w-full border rounded-lg px-4 py-2 mb-3">
 
-        <input type="email" required placeholder="Email"
+        <input type="email" id="email" required placeholder="Email"
         class="w-full border rounded-lg px-4 py-2 mb-3">
 
-        <input type="password" required placeholder="Password"
+        <input type="password" id="password" required placeholder="Password"
         class="w-full border rounded-lg px-4 py-2 mb-3">
+
+        <input type="confirmPassword" id="confirmPassword" required placeholder="Confirm Password"
+        class="w-full border rounded-lg px-4 py-2 mb-3"> 
 
         <button
           class="w-full bg-slate-900 text-white py-2 rounded-lg">Register
@@ -69,13 +74,15 @@
     </main>
 
     <script>
-      document.getElementById("registrationForm")
-      .addEventlistener("submit", e => {e.preventDefault();
+      document.getElementById("registrationForm") 
+      .addEventListener("submit", e => {e.preventDefault();
+        register();
         window.location.href="index.html"
       })
     </script>
 
-<body>
+
+
   
 </body>
 </html>

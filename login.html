@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login OrderZIP </title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+   <script src="js/auth.js"></script>
 </head>
 
 <!-- header menu -->
@@ -55,10 +56,10 @@
     class="bg-white border rounded-2x1 p-6 w-full max-w-md shadow">
     <h2 class="text-xl font-semibold mb-4">Login</h2>
     
-    <input type="email" required placeholder="Email"
+    <input type="email" id="email" required placeholder="Email"
       class="w-full border rounded-lg px-4 py-2 mb-3">
 
-    <input type="password" required placeholder="Password" class="w-full border rounded-lg px-4 py-2 mb-4">
+    <input type="password" id="password" required placeholder="Password" class="w-full border rounded-lg px-4 py-2 mb-4">
 
     <button
       class="w-full bg-slate-900 text-white py-2 rounded-lg">Login</button>
@@ -69,7 +70,7 @@
   <script>
       document.getElementById("loginForm").addEventListener("submit", e => {e.preventDefault();
         const email = e.target[0].value;
-        setUser({email});
+        login();
         window.location.href = "index.html";
 
       });
