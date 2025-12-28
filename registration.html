@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<!-- header menu -->
+
+<header class="bg-white border-b sticky top-0 z-50">
+    <div class="max-w-6x1 mx-auto px-4 py-4 flex justify-between items-center">
+       
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="h-9 w-9 bg-slate-900 text-white grid place-items-center rounded-lg font=bold">
+            OZ
+        </div>
+        <span class="font-semibold text-lg">OrderZIP</span>          
+        </a>
+
+        <nav class="flex items-center gap-6 text-sm">
+            <a href="index.html" class="hover:text-black text-slate-600">Home</a>
+            <a href="about.html" class="hover:text-black text-slate-600">About</a>
+
+            <span id="guestLinks" class="flex gap-4">
+              <a href="login.html" class="hover:text-black text-slate-600">Login</a>
+              <a href="registration.html" class="hover:text-black text-slate-600">Register</a>
+            </span>
+
+            <span id="userLinks" class="hidden flex gap-4 items-center">
+              <span id="userEmail" class="text-slate-600 text-sm"></span>
+              <button id="logoutBtn"
+              class="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm">logout
+            </button>
+
+            </span>
+
+        </nav>
+      
+    </div>
+    
+  </header>
+
+   <!-- End of header menu -->
+
+    <main class="min-h-screen grid place-items-center px-4">
+        <form id="registrationForm"
+        class="bg-white border rounded-2x1 p-6 w-full max-w-md shadow">
+        <h2 class="text-xl font-semibold mb-4">Register</h2>
+
+        <input type="firstName" required placeholder="First Name"
+          class="w-full border rounded-lg px-4 py-2 mb-3">
+
+        <input type="lastName" required placeholder="Last Name"
+          class="w-full border rounded-lg px-4 py-2 mb-3">
+
+        <input type="email" required placeholder="Email"
+        class="w-full border rounded-lg px-4 py-2 mb-3">
+
+        <input type="password" required placeholder="Password"
+        class="w-full border rounded-lg px-4 py-2 mb-3">
+
+        <button
+          class="w-full bg-slate-900 text-white py-2 rounded-lg">Register
+        </button>
+
+      
+    </main>
+
+    <script>
+      document.getElementById("registrationForm")
+      .addEventlistener("submit", e => {e.preventDefault();
+        window.location.href="index.html"
+      })
+    </script>
+
+<body>
+  
+</body>
+</html>
