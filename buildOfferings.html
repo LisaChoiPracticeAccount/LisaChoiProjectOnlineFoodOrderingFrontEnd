@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome OrderZIP </title>
+  <title>Set Offerings</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
      <script src="js/auth.js"></script>
-     <script src="js/app.js"></script>
-</head>
+  </head>    
+
+
 <body>
+
+
   
   <header class="bg-white border-b sticky top-0 z-50">
     <div class="max-w-6x1 mx-auto px-4 py-4 flex justify-between items-center">
@@ -24,8 +27,6 @@
             <a href="index.html" class="hover:text-black text-slate-600">Home</a>
             <a href="about.html" class="hover:text-black text-slate-600">About</a>
 
-            <a href="buildOfferings.html" class="hover:text-black text-slate-600">Offerings</a>
-
             <span id="guestLinks" class="flex gap-4">
               <a href="login.html" class="hover:text-black text-slate-600">Login</a>
               <a href="registration.html" class="hover:text-black text-slate-600">Register</a>
@@ -37,9 +38,6 @@
               class="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm">logout
             </button>
 
-            <span id="userLinks" class="hidden flex gap-4 items-center">
-            <span id="getStarted" class="text-slate-600 text-sm"></span>
-
             </span>
 
         </nav>
@@ -47,45 +45,28 @@
     </div>
     
   </header>
+   
+<main>
+      <section class="bg-slate-100 mt-4 p-8 max-w-6x1 mx-auto">
+       <div class="flex items-center justify-between mb-5">
+          <h2 class="text-2xl font-semibold">Add items</h2>
+        <span class="text-sm text-slate-500">Add descriptions</span>
+        <span class="text-sm text-slate-500">Add prices</span>
+        </div>
 
-  <main>
-    <div class="bg-slate-100 p-8 text-center">
-      <h1 class="text-2xl font-bold mb-4">OrderZIP</h1>
-      <div class="bg-white rounded-lg shadow-lg p-8 max-w-3x1 mx-auto">
-        <h2 class="text-2xl font-bold mb-4">Online food service platform for restaurants.  Your one-stop solution for online food service.</h2>
-        <p class="text-gray-700 mb-8">Start leveling up your sales today using our fully customizable and intuitive platform!</p>
+
        
-        
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Get Started
-      </button>
-        
-      </div>
-    </div>
-
-
-  </main>
-
-  <!-- Registration Form -->
-
-  <script>
+        <div id="productGrid"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          </div>
+    </section>
+    
+</main>
+         <script src="js/app.js"></script>
   
-document.addEventListener("DOMContentLoaded", () => {
-  const loginForm = document.getElementById("loginForm");
-  if (loginForm) {
-    loginForm.addEventListener("submit", e => {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-      localStorage.setItem("userEmail", formData.get("email"));
-      window.location.href = "index.html";
-    });
-  }
-});
 
 
 
-  </script>
+  
 </body>
 </html>
-
- 
