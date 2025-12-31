@@ -78,15 +78,14 @@ const clearCartBtn = document.getElementById('clearCartBtn');
 const checkoutBtn = document.getElementById('checkoutBtn');
 
 cartBtn?.addEventListener('click', openCart);
-closeCartBtn?,addEventListener('click', closeCart);
+closeCartBtn?.addEventListener('click', closeCart);
 closeOverlayBtn?.addEventListener('click', closeCart);
 clearCartBtn?.addEventListener('click', handleClearCart);
 
 function openCart() {
   if (!requireAuthentication()) return;
-  renderCartItems();
-  cartOverylay.classList.remove('hidden');
-  cartDrawer.classList.remove('translate-x-full');  
+  if (cartOverlay) cartOverlay.classList.remove('hidden');
+  if (cartDrawer) cartDrawer.classList.remove('translate-x-full');  
   renderCartItems();  
 }
 
@@ -94,6 +93,17 @@ function closeCart() {
   cartOverlay.classList.add('hidden');
   cartDrawer.classList.add('translate-x-full');  
 }
+
+function showCartToast(message) {
+  const toast = document.createElement('div');
+  toast.textContent = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 1000);
+}
+
+document.addEventListener("DOMContentLoaded", updateCartBadge);
+
 
 
 
