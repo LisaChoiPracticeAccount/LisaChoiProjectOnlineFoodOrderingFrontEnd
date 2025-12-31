@@ -1,8 +1,4 @@
-
- <script src="js/auth.js"></script>
-
 const PRODUCTS = [
-
   {
     id: "Cocktail-Menu-001",
     name: "Cocktails",
@@ -12,11 +8,8 @@ const PRODUCTS = [
     reviews: 200,
     stock: 50,
     badge: "Customer Favorite",
-    description: "A refreshing drink to accompany your meal.",
     imageUrl: "images/sampleCocktail.jpg"
-  
-  }
-
+  },
   {
     id: "Appetizer-Menu-002",
     name: "Appetizers",
@@ -26,7 +19,6 @@ const PRODUCTS = [
     reviews: 150,
     stock: 25,
     badge: "Best Seller",
-    description: "A delightful starter to kick off your meal.",
     imageUrl: "images/sampleapp.jpg"
   },
   {
@@ -38,10 +30,8 @@ const PRODUCTS = [
     reviews: 180,
     stock: 15,
     badge: "Healthy Choice",
-    description: "A fresh and crisp salad to refresh your palate.",
     imageUrl: "images/samplesalad.jpg"
   },  
-
   {
     id: "Entree-Menu-004",
     name: "Entrees ",
@@ -51,9 +41,8 @@ const PRODUCTS = [
     reviews: 200,
     stock: 30,
     badge: "New Arrival",
-    description: "A hearty main course to satisfy your hunger.",
     imageUrl: "images/sampleEntree.jpg"
-  }
+  },
   {
     id: "Dessert-Menu-005",
     name: "Dessserts",
@@ -63,11 +52,10 @@ const PRODUCTS = [
     reviews: 120,
     stock: 20,
     badge: "Popular",
-    description: "A sweet ending to your meal.",
     imageUrl: "images/sampleDessert.jpg"
-  }
+  },
   {
-  id: "Beverage-Menu-006",
+    id: "Beverage-Menu-006",
     name: "Beverages",
     description: "Beverages",
     price: 4.99,
@@ -75,16 +63,57 @@ const PRODUCTS = [
     reviews: 200,
     stock: 50,
     badge: "Customer Favorite",
-    description: "A refreshing drink to accompany your meal.",
     imageUrl: "images/samplebeverage.jpg"  
   }
 ];  
 
+function productCard(product) {
+  return `
+    <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 border">
+      <div class="p-6 flex flex-col h-full">
+        <!-- Badge -->
+        <div class="flex justify-between items-start mb-4">
+          <span class="text-xs text-slate-500">${product.description}</span>
+          <span class="text-xs font-medium bg-slate-100 px-3 py-1 rounded-full">${product.badge}</span>
+        </div>
+
+        <!-- Product Name -->
+        <h3 class="font-semibold text-lg leading-snug mb-2">${product.name}</h3>
+
+        <!-- Description -->
+        <p class="text-sm text-slate-600 mb-4 line-clamp-2">${product.description}</p>
+
+        <!-- Rating -->
+        <div class="flex items-center gap-2 text-sm text-slate-600 mb-4">
+          <span> Star Rating: ${product.rating} </span>
+          <span>(${product.reviews.toLocaleString()} reviews)</span>
+        </div>
+
+        <!-- Spacer -->
+        <div class="flex-grow"></div>
+
+        <!-- Price + Stock -->
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xl font-bold">$${product.price}</span>
+          <span class="text-xs text-slate-500">${product.stock > 10 ? "In stock" : "Limited stock"}</span>
+        </div>
+
+        <!-- CTA -->
+        <button
+          data-add="${product.id}"
+          class="w-full bg-slate-900 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-800 transition-colors duration-300">
+          Add to Cart
+        </button>
+      </div>
+    </div>`;
+}
 
 const productGrid = document.getElementById("productGrid");
 
-function renderProducts() {
-  productGrid.innerHTML = renderProducts.map(productCard).join("");   
-
+function renderProducts() { 
+  if (productGrid) {    
+    productGrid.innerHTML = PRODUCTS.map(productCard).join("");   
+  }
 }
+
 renderProducts();
